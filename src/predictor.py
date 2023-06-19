@@ -14,8 +14,9 @@ from datasets import Dataset, load_metric
 max_length = 384 # The maximum length of a feature (question and context)
 doc_stride = 128
 
-tokenizer = RobertaTokenizerFast.from_pretrained("roberta-base")
-model = AutoModelForQuestionAnswering.from_pretrained("roberta-base")
+load_model = "src/QAModel"
+tokenizer = RobertaTokenizerFast.from_pretrained(load_model)
+model = AutoModelForQuestionAnswering.from_pretrained(load_model)
 pad_on_right = tokenizer.padding_side == "right"
 
 task_name = "Squad"
@@ -229,6 +230,7 @@ def main():
 
 	path_to_outputs = "./outputs"
 	val_args = TrainingArguments(do_predict=True, fp16=True, output_dir=path_to_outputs)
+	#val_args = TrainingArguments(do_predict=True, fp16=False, output_dir=path_to_outputs)
 	data_collator = default_data_collator
 	trainer = AdapterTrainer(
 	    model=model,
@@ -239,10 +241,10 @@ def main():
 
 	raw_predictions = trainer.predict(validation_features)
 	final_predictions = postprocess_qa_predictions(valid_dataset, validation_features, raw_predictions.predictions)
-	metric = load_metric("squad_v2")
-	formatted_predictions = [{"id": k, "prediction_text": v, "no_answer_probability": 0.0} for k, v in final_predictions.items()]
-	references = [{"id": ex["id"], "answers": ex["answers"]} for ex in valid_dataset]
-	print(metric.compute(predictions=formatted_predictions, references=references))
+	#formatted_predictions = [{"id": k, "prediction_text": v, "no_answer_probability": 0.0} for k, v in final_predictions.items()]
+	#references = [{"id": ex["id"], "answers": ex["answers"]} for ex in valid_dataset]
+	#metric = load_metric("squad_v2")
+	#print(metric.compute(predictions=formatted_predictions, references=references))
 	save_predictions(output_pred_file, final_predictions)
 
 if __name__ == "__main__":
