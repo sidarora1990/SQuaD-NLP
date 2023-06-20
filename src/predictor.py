@@ -6,6 +6,17 @@ import collections
 import numpy as np
 from tqdm.auto import tqdm
 import collections
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+install("torch")
+install("transformers")
+install("adapter-transformers")
+install("datasets")
+
 from transformers import AutoTokenizer, RobertaTokenizerFast
 from transformers import default_data_collator
 from transformers import AutoModelForQuestionAnswering, TrainingArguments, AdapterTrainer, Trainer
@@ -14,9 +25,11 @@ from datasets import Dataset, load_metric
 max_length = 384 # The maximum length of a feature (question and context)
 doc_stride = 128
 
-load_model = "src/QAModel"
-tokenizer = RobertaTokenizerFast.from_pretrained(load_model)
-model = AutoModelForQuestionAnswering.from_pretrained(load_model)
+#load_model = "src/QAModel"
+#tokenizer = RobertaTokenizerFast.from_pretrained(load_model)
+#model = AutoModelForQuestionAnswering.from_pretrained(load_model)
+tokenizer = RobertaTokenizerFast.from_pretrained("roberta-base")
+model = AutoModelForQuestionAnswering.from_pretrained("roberta-base")
 pad_on_right = tokenizer.padding_side == "right"
 
 task_name = "Squad"
@@ -229,8 +242,8 @@ def main():
 	)
 
 	path_to_outputs = "./outputs"
-	val_args = TrainingArguments(do_predict=True, fp16=True, output_dir=path_to_outputs)
-	#val_args = TrainingArguments(do_predict=True, fp16=False, output_dir=path_to_outputs)
+	#val_args = TrainingArguments(do_predict=True, fp16=True, output_dir=path_to_outputs)
+	val_args = TrainingArguments(do_predict=True, fp16=False, output_dir=path_to_outputs)
 	data_collator = default_data_collator
 	trainer = AdapterTrainer(
 	    model=model,
