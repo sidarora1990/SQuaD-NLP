@@ -242,7 +242,6 @@ def main():
 	)
 
 	path_to_outputs = "./outputs"
-	#val_args = TrainingArguments(do_predict=True, fp16=True, output_dir=path_to_outputs)
 	val_args = TrainingArguments(do_predict=True, fp16=False, output_dir=path_to_outputs)
 	data_collator = default_data_collator
 	trainer = AdapterTrainer(
