@@ -4,7 +4,6 @@ import pandas as pd
 import json
 import collections
 import numpy as np
-from tqdm.auto import tqdm
 import collections
 import subprocess
 import sys
@@ -12,11 +11,15 @@ import sys
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-install("torch")
-install("transformers")
-install("adapter-transformers")
-install("datasets")
+install("source/download_files/transformers-4.18.0.tar.gz")
+install("source/download_files/datasets-2.4.0.tar.gz")
+install("source/download_files/adapter-transformers-3.0.1.tar.gz")
+#install("adapter-transformers")
+#install("transformers")
+#install("adapter-transformers")
+#install("datasets")
 
+from tqdm.auto import tqdm
 from transformers import AutoTokenizer, RobertaTokenizerFast
 from transformers import default_data_collator
 from transformers import AutoModelForQuestionAnswering, TrainingArguments, AdapterTrainer, Trainer
@@ -25,15 +28,14 @@ from datasets import Dataset, load_metric
 max_length = 384 # The maximum length of a feature (question and context)
 doc_stride = 128
 
-#load_model = "src/QAModel"
-#tokenizer = RobertaTokenizerFast.from_pretrained(load_model)
-#model = AutoModelForQuestionAnswering.from_pretrained(load_model)
-tokenizer = RobertaTokenizerFast.from_pretrained("roberta-base")
-model = AutoModelForQuestionAnswering.from_pretrained("roberta-base")
+load_model = "source/QAModel"
+tokenizer = RobertaTokenizerFast.from_pretrained(load_model)
+model = AutoModelForQuestionAnswering.from_pretrained(load_model)
+
 pad_on_right = tokenizer.padding_side == "right"
 
 task_name = "Squad"
-load_adapter = "src/Adapter_model"
+load_adapter = "source/Adapter_model"
 adapter_config = load_adapter + "/adapter_config.json"
 model.load_adapter(
     load_adapter,
@@ -242,7 +244,8 @@ def main():
 	)
 
 	path_to_outputs = "./outputs"
-	val_args = TrainingArguments(do_predict=True, fp16=False, output_dir=path_to_outputs)
+	val_args = TrainingArguments(do_predict=True, fp16=True, output_dir=path_to_outputs)
+	#val_args = TrainingArguments(do_predict=True, fp16=False, output_dir=path_to_outputs)
 	data_collator = default_data_collator
 	trainer = AdapterTrainer(
 	    model=model,

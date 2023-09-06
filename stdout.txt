@@ -1,0 +1,153 @@
+Processing ./source/download_files/transformers-4.18.0.tar.gz
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.6/dist-packages (from transformers==4.18.0) (4.64.1)
+Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.6/dist-packages (from transformers==4.18.0) (4.8.3)
+Collecting pyyaml>=5.1
+  Downloading PyYAML-6.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (677 kB)
+Collecting huggingface-hub<1.0,>=0.1.0
+  Downloading huggingface_hub-0.4.0-py3-none-any.whl (67 kB)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.6/dist-packages (from transformers==4.18.0) (1.19.5)
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from transformers==4.18.0) (2.22.0)
+Collecting sacremoses
+  Downloading sacremoses-0.0.53.tar.gz (880 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting filelock
+  Downloading filelock-3.4.1-py3-none-any.whl (9.9 kB)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.6/dist-packages (from transformers==4.18.0) (21.3)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.6/dist-packages (from transformers==4.18.0) (0.8)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.6/dist-packages (from transformers==4.18.0) (2023.8.8)
+Collecting tokenizers!=0.11.3,<0.13,>=0.11.1
+  Downloading tokenizers-0.12.1-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (6.6 MB)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /usr/local/lib/python3.6/dist-packages (from huggingface-hub<1.0,>=0.1.0->transformers==4.18.0) (3.7.4.3)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging>=20.0->transformers==4.18.0) (3.1.1)
+Requirement already satisfied: importlib-resources in /usr/local/lib/python3.6/dist-packages (from tqdm>=4.27->transformers==4.18.0) (5.4.0)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.6/dist-packages (from importlib-metadata->transformers==4.18.0) (3.6.0)
+Requirement already satisfied: click in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers==4.18.0) (8.0.4)
+Requirement already satisfied: joblib in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers==4.18.0) (1.1.1)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers==4.18.0) (1.15.0)
+Building wheels for collected packages: transformers, sacremoses
+  Building wheel for transformers (pyproject.toml): started
+  Building wheel for transformers (pyproject.toml): finished with status 'done'
+  Created wheel for transformers: filename=transformers-4.18.0-py3-none-any.whl size=3959317 sha256=6eb527237b179049943a215f712ad9a66dce1424c19227d0c61fb2ae4c13be1f
+  Stored in directory: /0xd1bcbef41f354a41a52d6013c95e01f5/.cache/pip/wheels/04/8d/59/a416a40b5a7a76ddca398a2d230a59363310f32657a88dbee5
+  Building wheel for sacremoses (setup.py): started
+  Building wheel for sacremoses (setup.py): finished with status 'done'
+  Created wheel for sacremoses: filename=sacremoses-0.0.53-py3-none-any.whl size=895254 sha256=f1602da4c4870d9fead1a4758a2819aac0ff3a981340313e04a71e6261c36404
+  Stored in directory: /0xd1bcbef41f354a41a52d6013c95e01f5/.cache/pip/wheels/4c/64/31/e9900a234b23fb3e9dc565d6114a9d6ff84a72dbdd356502b4
+Successfully built transformers sacremoses
+Installing collected packages: pyyaml, filelock, tokenizers, sacremoses, huggingface-hub, transformers
+Successfully installed filelock-3.4.1 huggingface-hub-0.4.0 pyyaml-6.0.1 sacremoses-0.0.53 tokenizers-0.12.1 transformers-4.18.0
+Processing ./source/download_files/datasets-2.4.0.tar.gz
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting aiohttp
+  Downloading aiohttp-3.8.5-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (973 kB)
+Collecting dill<0.3.6
+  Downloading dill-0.3.4-py2.py3-none-any.whl (86 kB)
+Collecting fsspec[http]>=2021.11.1
+  Downloading fsspec-2022.1.0-py3-none-any.whl (133 kB)
+Requirement already satisfied: huggingface-hub<1.0.0,>=0.1.0 in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (0.4.0)
+Collecting multiprocess
+  Downloading multiprocess-0.70.12.2-py36-none-any.whl (106 kB)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (1.19.5)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (21.3)
+Requirement already satisfied: pandas in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (1.1.5)
+Collecting pyarrow>=6.0.0
+  Downloading pyarrow-6.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25.6 MB)
+Requirement already satisfied: requests>=2.19.0 in /usr/lib/python3/dist-packages (from datasets==2.4.0) (2.22.0)
+Collecting responses<0.19
+  Downloading responses-0.17.0-py2.py3-none-any.whl (38 kB)
+Requirement already satisfied: tqdm>=4.62.1 in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (4.64.1)
+Collecting xxhash
+  Downloading xxhash-3.2.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (211 kB)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (0.8)
+Requirement already satisfied: importlib_metadata in /usr/local/lib/python3.6/dist-packages (from datasets==2.4.0) (4.8.3)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /usr/local/lib/python3.6/dist-packages (from huggingface-hub<1.0.0,>=0.1.0->datasets==2.4.0) (3.7.4.3)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.6/dist-packages (from huggingface-hub<1.0.0,>=0.1.0->datasets==2.4.0) (6.0.1)
+Requirement already satisfied: filelock in /usr/local/lib/python3.6/dist-packages (from huggingface-hub<1.0.0,>=0.1.0->datasets==2.4.0) (3.4.1)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging->datasets==2.4.0) (3.1.1)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from responses<0.19->datasets==2.4.0) (1.15.0)
+Collecting urllib3>=1.25.10
+  Downloading urllib3-1.26.16-py2.py3-none-any.whl (143 kB)
+Requirement already satisfied: importlib-resources in /usr/local/lib/python3.6/dist-packages (from tqdm>=4.62.1->datasets==2.4.0) (5.4.0)
+Collecting charset-normalizer<4.0,>=2.0
+  Downloading charset_normalizer-3.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (162 kB)
+Collecting async-timeout<5.0,>=4.0.0a3
+  Downloading async_timeout-4.0.2-py3-none-any.whl (5.8 kB)
+Collecting idna-ssl>=1.0
+  Downloading idna-ssl-1.1.0.tar.gz (3.4 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting multidict<7.0,>=4.5
+  Downloading multidict-5.2.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (159 kB)
+Collecting aiosignal>=1.1.2
+  Downloading aiosignal-1.2.0-py3-none-any.whl (8.2 kB)
+Collecting frozenlist>=1.1.1
+  Downloading frozenlist-1.2.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (191 kB)
+Collecting yarl<2.0,>=1.0
+  Downloading yarl-1.7.2-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (270 kB)
+Collecting asynctest==0.13.0
+  Downloading asynctest-0.13.0-py3-none-any.whl (26 kB)
+Collecting attrs>=17.3.0
+  Downloading attrs-22.2.0-py3-none-any.whl (60 kB)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.6/dist-packages (from importlib_metadata->datasets==2.4.0) (3.6.0)
+Requirement already satisfied: pytz>=2017.2 in /usr/local/lib/python3.6/dist-packages (from pandas->datasets==2.4.0) (2023.3)
+Requirement already satisfied: python-dateutil>=2.7.3 in /usr/local/lib/python3.6/dist-packages (from pandas->datasets==2.4.0) (2.8.2)
+Requirement already satisfied: idna>=2.0 in /usr/lib/python3/dist-packages (from idna-ssl>=1.0->aiohttp->datasets==2.4.0) (2.8)
+Building wheels for collected packages: datasets, idna-ssl
+  Building wheel for datasets (setup.py): started
+  Building wheel for datasets (setup.py): finished with status 'done'
+  Created wheel for datasets: filename=datasets-2.4.0-py3-none-any.whl size=365655 sha256=52ac7e955a61abddec07daf481e99ff003d8098f0ff6e3c8dc4d4a14917bd012
+  Stored in directory: /0xd1bcbef41f354a41a52d6013c95e01f5/.cache/pip/wheels/c5/85/64/d47490cadfe453894a2d06eb271322f18332468cdc68f232f8
+  Building wheel for idna-ssl (setup.py): started
+  Building wheel for idna-ssl (setup.py): finished with status 'done'
+  Created wheel for idna-ssl: filename=idna_ssl-1.1.0-py3-none-any.whl size=3160 sha256=16f1fd42aee5a817061c8db55e4411d8b05a93de29222661896ef4d9007230c8
+  Stored in directory: /0xd1bcbef41f354a41a52d6013c95e01f5/.cache/pip/wheels/6a/f5/9c/f8331a854f7a8739cf0e74c13854e4dd7b1af11b04fe1dde13
+Successfully built datasets idna-ssl
+Installing collected packages: multidict, frozenlist, yarl, idna-ssl, charset-normalizer, attrs, asynctest, async-timeout, aiosignal, urllib3, fsspec, dill, aiohttp, xxhash, responses, pyarrow, multiprocess, datasets
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 1.25.8
+    Uninstalling urllib3-1.25.8:
+      Successfully uninstalled urllib3-1.25.8
+Successfully installed aiohttp-3.8.5 aiosignal-1.2.0 async-timeout-4.0.2 asynctest-0.13.0 attrs-22.2.0 charset-normalizer-3.0.1 datasets-2.4.0 dill-0.3.4 frozenlist-1.2.0 fsspec-2022.1.0 idna-ssl-1.1.0 multidict-5.2.0 multiprocess-0.70.12.2 pyarrow-6.0.1 responses-0.17.0 urllib3-1.26.16 xxhash-3.2.0 yarl-1.7.2
+Processing ./source/download_files/adapter-transformers-3.0.1.tar.gz
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from adapter-transformers==3.0.1) (2.22.0)
+Requirement already satisfied: tokenizers!=0.11.3,>=0.11.1 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (0.12.1)
+Requirement already satisfied: sacremoses in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (0.0.53)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (6.0.1)
+Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (4.64.1)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (21.3)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (2023.8.8)
+Requirement already satisfied: huggingface-hub<1.0,>=0.1.0 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (0.4.0)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (1.19.5)
+Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (4.8.3)
+Requirement already satisfied: filelock in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (3.4.1)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.6/dist-packages (from adapter-transformers==3.0.1) (0.8)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /usr/local/lib/python3.6/dist-packages (from huggingface-hub<1.0,>=0.1.0->adapter-transformers==3.0.1) (3.7.4.3)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging>=20.0->adapter-transformers==3.0.1) (3.1.1)
+Requirement already satisfied: importlib-resources in /usr/local/lib/python3.6/dist-packages (from tqdm>=4.27->adapter-transformers==3.0.1) (5.4.0)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.6/dist-packages (from importlib-metadata->adapter-transformers==3.0.1) (3.6.0)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from sacremoses->adapter-transformers==3.0.1) (1.15.0)
+Requirement already satisfied: click in /usr/local/lib/python3.6/dist-packages (from sacremoses->adapter-transformers==3.0.1) (8.0.4)
+Requirement already satisfied: joblib in /usr/local/lib/python3.6/dist-packages (from sacremoses->adapter-transformers==3.0.1) (1.1.1)
+Building wheels for collected packages: adapter-transformers
+  Building wheel for adapter-transformers (pyproject.toml): started
+  Building wheel for adapter-transformers (pyproject.toml): finished with status 'done'
+  Created wheel for adapter-transformers: filename=adapter_transformers-3.0.1-py3-none-any.whl size=3907287 sha256=5772177ec0eba755ea0492941157826072dda2dbefaa32a72bd0f91affe84d99
+  Stored in directory: /0xd1bcbef41f354a41a52d6013c95e01f5/.cache/pip/wheels/8d/d0/f0/0c26bdde60fc2e02cc7e8e65abcc001282d90eed085c635cad
+Successfully built adapter-transformers
+Installing collected packages: adapter-transformers
+Successfully installed adapter-transformers-3.0.1
+Post-processing 11873 example predictions split into 12165 features.

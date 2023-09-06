@@ -1,0 +1,4 @@
+1. cl run :dev-v2.0.json :source "python source/predictor.py dev-v2.0.json predictions.json" -n run-squad-predictions --request-gpus 1 --request-memory 4g
+2.cl make run-squad-predictions/predictions.json -n predictions-adapter-trivia-squad
+3. cl macro squad-utils/dev-evaluate-v2.0 predictions-adapter-trivia-squad --request-time 5m
+4. cl edit predictions-adapter-trivia-squad --tags squad-2.0-test-submit
