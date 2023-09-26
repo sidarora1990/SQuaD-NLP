@@ -7,35 +7,63 @@ import numpy as np
 import collections
 import subprocess
 import sys
+import pdb
 
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-install("source/download_files/transformers-4.18.0.tar.gz")
-install("source/download_files/datasets-2.4.0.tar.gz")
-install("source/download_files/adapter-transformers-3.0.1.tar.gz")
-#install("adapter-transformers")
-#install("transformers")
-#install("adapter-transformers")
-#install("datasets")
+
+install("source_code/download_files/setuptools-45.2.0-py3-none-any.whl")
+install("source_code/download_files/PyYAML-6.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl")
+install("source_code/download_files/filelock-3.4.1-py3-none-any.whl")
+
+install("source_code/download_files/huggingface_hub-0.4.0-py3-none-any.whl")
+install("source_code/download_files/sacremoses-0.0.53.tar.gz")
+install("source_code/download_files/tokenizers-0.12.1-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl")
+
+install("source_code/download_files/charset_normalizer-3.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl")
+install("source_code/download_files/attrs-22.2.0-py3-none-any.whl")
+
+install("source_code/download_files/asynctest-0.13.0-py3-none-any.whl")
+install("source_code/download_files/async_timeout-4.0.2-py3-none-any.whl")
+install("source_code/download_files/frozenlist-1.2.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl")
+install("source_code/download_files/multidict-5.2.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl")
+install("source_code/download_files/yarl-1.7.2-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl")
+install("source_code/download_files/idna-ssl-1.1.0.tar.gz")
+
+install("source_code/download_files/aiosignal-1.2.0-py3-none-any.whl")
+install("source_code/download_files/aiohttp-3.8.5-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl")
+install("source_code/download_files/dill-0.3.4-py2.py3-none-any.whl")
+install("source_code/download_files/fsspec-2022.1.0-py3-none-any.whl")
+
+install("source_code/download_files/multiprocess-0.70.12.2-py36-none-any.whl")
+install("source_code/download_files/pyarrow-6.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl")
+install("source_code/download_files/urllib3-1.26.16-py2.py3-none-any.whl")
+install("source_code/download_files/responses-0.17.0-py2.py3-none-any.whl")
+install("source_code/download_files/xxhash-3.2.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl")
+
+install("source_code/download_files/transformers-4.18.0-py3-none-any.whl")
+install("source_code/download_files/datasets-2.4.0-py3-none-any.whl")
+install("source_code/download_files/adapter_transformers-3.0.1-py3-none-any.whl")
 
 from tqdm.auto import tqdm
 from transformers import AutoTokenizer, RobertaTokenizerFast
 from transformers import default_data_collator
 from transformers import AutoModelForQuestionAnswering, TrainingArguments, AdapterTrainer, Trainer
 from datasets import Dataset, load_metric
+#from torch.utils.data import Dataset
 
 max_length = 384 # The maximum length of a feature (question and context)
 doc_stride = 128
 
-load_model = "source/QAModel"
+load_model = "source_code/QAModel"
 tokenizer = RobertaTokenizerFast.from_pretrained(load_model)
 model = AutoModelForQuestionAnswering.from_pretrained(load_model)
 
 pad_on_right = tokenizer.padding_side == "right"
 
 task_name = "Squad"
-load_adapter = "source/Adapter_model"
+load_adapter = "source_code/Adapter_model"
 adapter_config = load_adapter + "/adapter_config.json"
 model.load_adapter(
     load_adapter,
@@ -236,7 +264,9 @@ def main():
 	output_pred_file = args.output_file_path
 	if os.path.isfile(input_file_path):
 		valid_data_dict = load_squad_dataset(input_file_path)
+	#pdb.set_trace()
 	valid_dataset = Dataset.from_pandas(pd.DataFrame(data=valid_data_dict["data"]))
+	#valid_dataset = Dataset(pd.DataFrame(data=valid_data_dict["data"]))
 	validation_features = valid_dataset.map(
 	    prepare_validation_features,
 	    batched=True,
