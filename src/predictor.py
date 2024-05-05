@@ -4,7 +4,6 @@ import pandas as pd
 import json
 import collections
 import numpy as np
-import collections
 import subprocess
 import sys
 import pdb
